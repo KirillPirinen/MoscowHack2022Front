@@ -1,4 +1,4 @@
-export const host = process.env.NODE_ENV !== 'production' ? 'http://localhost:5001' : 'https://presentsimple.online'
+export const host = process.env.NETWORK_ENV === 'development' ? 'http://localhost:5001' : 'https://presentsimple.online'
 
 const endPoints = {
   signUp:"/api/v1/auth/signup",
