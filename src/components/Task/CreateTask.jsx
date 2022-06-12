@@ -86,8 +86,15 @@ export const CreateTask = () => {
     const { newTag, newSkill, ...other } = data;
     const formData = new FormData();
     formData.append('taskImg', acceptedFiles[0]);
-    formData.append('tags', tags);
-    formData.append('skills', skills);
+
+    tags.forEach(tag => {
+        formData.append('tags[]', tag);
+    })
+
+    skills.forEach(skill => {
+      formData.append('skills[]', skill);
+    })
+    
     const date = new Date(other.deadline)
     other.deadline = date.toISOString();
     for (const key in other) {
@@ -97,7 +104,7 @@ export const CreateTask = () => {
         formData.append(key, other[key]);
       }
     }
-    console.log('privet')
+
     dispatch(addNewTask(formData));
     setModal(null)
   };

@@ -18,13 +18,12 @@ const stub = [
   { id: "other", text:"Остальное" },
 ]
 
-export const CategoriesList = ({ caregories = categoryContent }) => {
+export const CategoriesList = ({ caregories = stub }) => {
   const navigate = useNavigate()
-  const formattedContent = Object.keys(categoryContent)
   const clickHandler = (category_id) => () => navigate(`category/${category_id}`)
   return (
     <DefaultWidgetWrapper>
-      {formattedContent.map((key) => <CategoryBadgeListItem key={key} icon={key} text={categoryContent[key]} onClick={clickHandler(key)} />)}
+      {caregories.map(({id, text}) => <CategoryBadgeListItem key={id} icon={id} text={text} onClick={clickHandler(id)} />)}
     </DefaultWidgetWrapper>
   )
 }
