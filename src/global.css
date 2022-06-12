@@ -1,0 +1,9 @@
+html {
+  min-width: 400px;
+  margin-left: calc(100vw - 100%);
+  margin-right: 0; 
+}
+
+body {
+  overflow-anchor: none;
+}
